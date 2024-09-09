@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>Haselnussbomber.YogaSharp</PackageId>
+    <Title>YogaSharp</Title>
+    <Version>1.0.0</Version>
+    <Authors>Haselnussbomber</Authors>
+    <PackageProjectUrl>https://github.com/Haselnussbomber/YogaSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Haselnussbomber/YogaSharp.git</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Platforms>x64</Platforms>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\bin\</OutputPath>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <DebugType>full</DebugType>
+    <DisableRuntimeMarshalling>true</DisableRuntimeMarshalling>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <Deterministic>true</Deterministic>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedAllSources>true</EmbedAllSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="packages.lock.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None
+      Condition="Exists('..\yoga\LICENSE')"
+      Include="..\yoga\LICENSE"
+      Pack="true"
+      PackagePath="" />
+    <None
+      Condition="Exists('..\yoga\build\yoga\$(Configuration)\yogacore.dll')"
+      Include="..\yoga\build\yoga\$(Configuration)\yogacore.dll"
+      Pack="true"
+      PackagePath="runtimes\win-x64\native" />
+    <None
+      Condition="Exists('..\yoga\build\yoga\$(Configuration)\yogacore.pdb')"
+      Include="..\yoga\build\yoga\$(Configuration)\yogacore.pdb"
+      Pack="true"
+      PackagePath="runtimes\win-x64\native" />
+  </ItemGroup>
+</Project>

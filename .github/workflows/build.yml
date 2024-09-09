@@ -1,0 +1,51 @@
+name: Build
+
+on:
+  push:
+    paths-ignore:
+      - .editorconfig
+      - .gitattributes
+      - .github/**
+      - .gitignore
+      - LICENSE
+      - README.md
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          cache: true
+          cache-dependency-path: YogaSharp/packages.lock.json
+
+      - name: Build Yoga
+        run: |
+          git apply --ignore-whitespace shared-build.patch
+          cd yoga
+          mkdir build
+          cd build
+          cmake ..
+          cmake --build yoga --config Debug
+          cmake --build yoga --config Release
+          cd ../..
+
+      - name: Restore dependencies
+        run: dotnet restore --locked-mode
+
+      - name: Pack
+        run: dotnet pack --no-restore
+
+      - name: Upload Build Artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./bin/*
+          if-no-files-found: error
