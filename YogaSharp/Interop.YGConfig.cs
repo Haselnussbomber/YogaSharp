@@ -5,7 +5,7 @@ namespace YogaSharp;
 public static unsafe partial class Interop
 {
     /// <summary>
-    /// Allocates a set of configuration options. The configuration may be applied to multiple nodes (i.e.a single global config), or can be applied more granularly per-node.
+    /// Allocates a set of configuration options. The configuration may be applied to multiple nodes (i.e. a single global config), or can be applied more granularly per-node.
     /// </summary>
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
     public static extern YGConfig* YGConfigNew();
@@ -37,7 +37,7 @@ public static unsafe partial class Interop
 
     /// <summary>
     /// Yoga will by deafult round final layout positions and dimensions to the nearst point.<br/>
-    /// `pointScaleFactor` controls the density of the grid used for layout rounding (e.g.to round to the closest display pixel).<br/>
+    /// `pointScaleFactor` controls the density of the grid used for layout rounding (e.g. to round to the closest display pixel).<br/>
     /// May be set to 0.0f to avoid rounding the layout results.
     /// </summary>
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
@@ -52,7 +52,7 @@ public static unsafe partial class Interop
     /// <summary>
     /// Configures how Yoga balances W3C conformance vs compatibility with layouts created against earlier versions of Yoga.<br/>
     /// <br/>
-    /// By deafult Yoga will prioritize W3C conformance. `Errata` may be set to ask Yoga to produce specific incorrect behaviors. E.g. `YGConfigSetErrata(config, <see cref="YGErrata.StretchFlexBasis"/>)`.<br/>
+    /// By deafult Yoga will prioritize W3C conformance. `Errata` may be set to ask Yoga to produce specific incorrect behaviors, e.g. `YGConfigSetErrata(config, <see cref="YGErrata.StretchFlexBasis"/>)`.<br/>
     /// <br/>
     /// YGErrata is a bitmask, and multiple errata may be set at once. Predfined constants exist for convenience:<br/>
     /// <list type="table">

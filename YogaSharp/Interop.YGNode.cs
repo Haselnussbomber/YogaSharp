@@ -19,7 +19,7 @@ public static unsafe partial class Interop
     /// <summary>
     /// Returns a mutable copy of an existing node, with the same context and
     /// children, but no owner set.<br/>
-    /// Does not call the function set by YGConfigSetCloneNodeFunc().
+    /// Does not call the function set by <see cref="YGConfigSetCloneNodeFunc(YGConfig*, nint)"/>.
     /// </summary>
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
     public static extern YGNode* YGNodeClone(YGNode* oldnode);
@@ -51,16 +51,16 @@ public static unsafe partial class Interop
 
     /// <summary>
     /// Calculates the layout of the tree rooted at the given node.<br/>
-    /// Layout results may be read after calling YGNodeCalculateLayout() using
-    /// functions like YGNodeLayoutGetLeft(), YGNodeLayoutGetTop(), etc.<br/>
-    /// YGNodeGetHasNewLayout() may be read to know if the layout of the node or its
-    /// subtrees may have changed since the last time YGNodeCalculate() was called.
+    /// Layout results may be read after calling this function using
+    /// functions like <see cref="YGNodeLayoutGetLeft(YGNode*)"/>, <see cref="YGNodeLayoutGetTop(YGNode*)"/>, etc.<br/>
+    /// <see cref="YGNodeGetHasNewLayout(YGNode*)"/> may be read to know if the layout of the node or its
+    /// subtrees may have changed since the last time YGNodeCalculateLayout() was called.
     /// </summary>
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
     public static extern void YGNodeCalculateLayout(YGNode* node, float ownerWidth, float ownerHeight, YGDirection ownerDirection);
 
     /// <summary>
-    /// Whether the given node may have new layout results. Must be reset by calling YGNodeSetHasNewLayout().
+    /// Whether the given node may have new layout results. Must be reset by calling <see cref="YGNodeSetHasNewLayout(YGNode*, bool)"/>.
     /// </summary>
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
     public static extern bool YGNodeGetHasNewLayout(YGNode* node);
@@ -162,8 +162,8 @@ public static unsafe partial class Interop
     public static extern void* YGNodeGetContext(YGNode* node);
 
     /// <summary>
-    /// Allows providing custom measurements for a Yoga leaf node(usually for measuring text).<br/>
-    /// YGNodeMarkDirty() must be set if content effecting the measurements of the node changes.
+    /// Allows providing custom measurements for a Yoga leaf node (usually for measuring text).<br/>
+    /// <see cref="YGNodeMarkDirty(YGNode*)"/> must be set if content effecting the measurements of the node changes.
     /// </summary>
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
     public static extern void YGNodeSetMeasureFunc(YGNode* node, nint measureFunc);
