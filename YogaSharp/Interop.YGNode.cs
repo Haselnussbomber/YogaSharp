@@ -202,13 +202,13 @@ public static unsafe partial class Interop
     /// Sets whether a leaf node's layout results may be truncated during layout rounding.
     /// </summary>
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
-    public static extern void YGNodeSetNodeType(YGNode* node, NodeType nodeType);
+    public static extern void YGNodeSetNodeType(YGNode* node, YGNodeType nodeType);
 
     /// <summary>
     /// Whether a leaf node's layout results may be truncated during layout rounding.
     /// </summary>
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
-    public static extern NodeType YGNodeGetNodeType(YGNode* node);
+    public static extern YGNodeType YGNodeGetNodeType(YGNode* node);
 
     /// <summary>
     /// Make it so that this node will always form a containing block for any descendant nodes.<br/>

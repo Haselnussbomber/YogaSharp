@@ -11,15 +11,15 @@ public static unsafe partial class Interop
     /// <br/>
     /// <list type="table">
     ///   <item>
-    ///     <term><see cref="MeasureMode.Undefined"/></term>
+    ///     <term><see cref="YGMeasureMode.Undefined"/></term>
     ///     <description>The parent has not imposed any constraint on the child. It can be whatever size it wants.</description>
     ///   </item>
     ///   <item>
-    ///     <term><see cref="MeasureMode.AtMost"/></term>
+    ///     <term><see cref="YGMeasureMode.AtMost"/></term>
     ///     <description>The child can be as large as it wants up to the specified size.</description>
     ///   </item>
     ///   <item>
-    ///     <term><see cref="MeasureMode.Exactly"/></term>
+    ///     <term><see cref="YGMeasureMode.Exactly"/></term>
     ///     <description>The parent has determined an exact size for the child. The child is going to be given those bounds regardless of how big it wants to be.</description>
     ///   </item>
     /// </list>
@@ -28,7 +28,7 @@ public static unsafe partial class Interop
     /// The size of the leaf node, measured under the given contraints.
     /// </returns>
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    public delegate YGSize YGMeasureFuncDelegate(YGNode* node, float width, MeasureMode widthMode, float height, MeasureMode heightMode);
+    public delegate YGSize YGMeasureFuncDelegate(YGNode* node, float width, YGMeasureMode widthMode, float height, YGMeasureMode heightMode);
 
     /// <summary>
     /// A defined offet to baseline (ascent).

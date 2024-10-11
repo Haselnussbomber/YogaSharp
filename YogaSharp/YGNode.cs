@@ -211,15 +211,15 @@ public unsafe struct YGNode : IDisposable
             return Interop.YGNodeIsReferenceBaseline(ptr);
     }
 
-    /// <inheritdoc cref="Interop.YGNodeSetNodeType(YGNode*, NodeType)"/>
-    public void SetNodeType(NodeType nodeType)
+    /// <inheritdoc cref="Interop.YGNodeSetNodeType(YGNode*, YGNodeType)"/>
+    public void SetNodeType(YGNodeType nodeType)
     {
         fixed (YGNode* ptr = &this)
             Interop.YGNodeSetNodeType(ptr, nodeType);
     }
 
     /// <inheritdoc cref="Interop.YGNodeGetNodeType(YGNode*)"/>
-    public NodeType GetNodeType()
+    public YGNodeType GetNodeType()
     {
         fixed (YGNode* ptr = &this)
             return Interop.YGNodeGetNodeType(ptr);

@@ -95,14 +95,14 @@ public enum YGLogLevel
     Fatal
 }
 
-public enum MeasureMode
+public enum YGMeasureMode
 {
     Undefined,
     Exactly,
     AtMost
 }
 
-public enum NodeType
+public enum YGNodeType
 {
     Default,
     Text
@@ -115,7 +115,7 @@ public enum YGOverflow
     Scroll
 }
 
-public enum PhysicalEdge
+public enum YGPhysicalEdge
 {
     Left,
     Top,
