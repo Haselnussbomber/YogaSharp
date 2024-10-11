@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyName>YogaSharp</AssemblyName>
     <PackageId>Haselnussbomber.YogaSharp</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Haselnussbomber</Authors>
     <PackageProjectUrl>https://github.com/Haselnussbomber/YogaSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Haselnussbomber/YogaSharp.git</RepositoryUrl>
