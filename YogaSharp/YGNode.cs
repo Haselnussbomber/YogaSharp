@@ -551,6 +551,13 @@ public unsafe struct YGNode : IDisposable
             Interop.YGNodeStyleSetPositionPercent(ptr, edge, percent);
     }
 
+    /// <inheritdoc cref="Interop.YGNodeStyleSetPositionAuto(YGNode*, YGEdge)"/>
+    public void SetPositionAuto(YGEdge edge)
+    {
+        fixed (YGNode* ptr = &this)
+            Interop.YGNodeStyleSetPositionAuto(ptr, edge);
+    }
+
     /// <inheritdoc cref="Interop.YGNodeStyleGetPosition(YGNode*, YGEdge)"/>
     public YGValue GetPosition(YGEdge edge)
     {
@@ -633,6 +640,20 @@ public unsafe struct YGNode : IDisposable
     {
         fixed (YGNode* ptr = &this)
             return Interop.YGNodeStyleGetGap(ptr, gutter);
+    }
+
+    /// <inheritdoc cref="Interop.YGNodeStyleSetBoxSizing(YGNode*, YGBoxSizing)"/>
+    public void SetBoxSizing(YGBoxSizing boxSizing)
+    {
+        fixed (YGNode* ptr = &this)
+            Interop.YGNodeStyleSetBoxSizing(ptr, boxSizing);
+    }
+
+    /// <inheritdoc cref="Interop.YGNodeStyleGetBoxSizing(YGNode*)"/>
+    public YGBoxSizing GetBoxSizing()
+    {
+        fixed (YGNode* ptr = &this)
+            return Interop.YGNodeStyleGetBoxSizing(ptr);
     }
 
     /// <inheritdoc cref="Interop.YGNodeStyleSetAspectRatio(YGNode*, float)"/>

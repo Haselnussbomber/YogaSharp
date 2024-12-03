@@ -104,6 +104,9 @@ public static unsafe partial class Interop
     public static extern void YGNodeStyleSetPositionPercent(YGNode* node, YGEdge edge, float percent);
 
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
+    public static extern void YGNodeStyleSetPositionAuto(YGNode* node, YGEdge edge);
+
+    [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
     public static extern YGValue YGNodeStyleGetPosition(YGNode* node, YGEdge edge);
 
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
@@ -138,6 +141,12 @@ public static unsafe partial class Interop
 
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
     public static extern float YGNodeStyleGetGap(YGNode* node, YGGutter gutter);
+
+    [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
+    public static extern void YGNodeStyleSetBoxSizing(YGNode* node, YGBoxSizing boxSizing);
+
+    [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
+    public static extern YGBoxSizing YGNodeStyleGetBoxSizing(YGNode* node);
 
     [DllImport(yogacoredll, CallingConvention = CallingConvention.Cdecl)]
     public static extern void YGNodeStyleSetAspectRatio(YGNode* node, float aspectRatio);

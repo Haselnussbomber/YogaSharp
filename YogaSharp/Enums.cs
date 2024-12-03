@@ -13,6 +13,12 @@ public enum YGAlign
     SpaceEvenly
 }
 
+public enum YGBoxSizing
+{
+    BorderBox,
+    ContentBox,
+}
+
 public enum YGDimension
 {
     Width,
@@ -29,7 +35,8 @@ public enum YGDirection
 public enum YGDisplay
 {
     Flex,
-    None
+    None,
+    Contents
 }
 
 public enum YGEdge
@@ -49,7 +56,7 @@ public enum YGErrata
 {
     None = 0,
     StretchFlexBasis = 1,
-    AbsolutePositioningIncorrect = 2,
+    AbsolutePositionWithoutInsetsExcludesPadding = 2,
     AbsolutePercentAgainstInnerSize = 4,
     All = int.MaxValue,
     Classic = int.MaxValue - 1
