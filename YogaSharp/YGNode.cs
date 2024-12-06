@@ -530,6 +530,27 @@ public unsafe struct YGNode : IDisposable
             Interop.YGNodeStyleSetFlexBasisAuto(ptr);
     }
 
+    /// <inheritdoc cref="Interop.YGNodeStyleSetFlexBasisMaxContent(YGNode*)"/>
+    public void SetFlexBasisMaxContent()
+    {
+        fixed (YGNode* ptr = &this)
+            Interop.YGNodeStyleSetFlexBasisMaxContent(ptr);
+    }
+
+    /// <inheritdoc cref="Interop.YGNodeStyleSetFlexBasisFitContent(YGNode*)"/>
+    public void SetFlexBasisFitContent()
+    {
+        fixed (YGNode* ptr = &this)
+            Interop.YGNodeStyleSetFlexBasisFitContent(ptr);
+    }
+
+    /// <inheritdoc cref="Interop.YGNodeStyleSetFlexBasisStretch(YGNode*)"/>
+    public void SetFlexBasisStretch()
+    {
+        fixed (YGNode* ptr = &this)
+            Interop.YGNodeStyleSetFlexBasisStretch(ptr);
+    }
+
     /// <inheritdoc cref="Interop.YGNodeStyleGetFlexBasis(YGNode*)"/>
     public YGValue GetFlexBasis()
     {
