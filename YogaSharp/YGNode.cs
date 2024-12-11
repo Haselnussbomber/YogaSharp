@@ -23,6 +23,13 @@ public unsafe struct YGNode : IDisposable
             Interop.YGNodeFree(ptr);
     }
 
+    /// <inheritdoc cref="Interop.YGNodeFinalize(YGNode*)"/>
+    public void Finalize()
+    {
+        fixed (YGNode* ptr = &this)
+            Interop.YGNodeFinalize(ptr);
+    }
+
     /// <inheritdoc cref="Interop.YGNodeFreeRecursive(YGNode*)"/>
     public void FreeRecursive()
     {
