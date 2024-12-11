@@ -24,7 +24,7 @@ public unsafe struct YGNode : IDisposable
     }
 
     /// <inheritdoc cref="Interop.YGNodeFinalize(YGNode*)"/>
-    public void Finalize()
+    public void FinalizeNode()
     {
         fixed (YGNode* ptr = &this)
             Interop.YGNodeFinalize(ptr);
